@@ -1,42 +1,16 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { PageHeader } from 'antd';
+import { useStaticQuery, graphql } from "gatsby"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+
+export default class Header_own extends React.Component{
+  render (){
+    return(
+      <PageHeader title={ this.props.title }   style={{ margin: '16px 16px' }}/>
+    )
+  }
+
 }
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
