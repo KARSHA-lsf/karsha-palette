@@ -2,10 +2,39 @@ import React from "react"
 import { Layout, Menu, Icon } from 'antd'
 import { useStaticQuery, graphql } from "gatsby"
 
+import ApolloClient, { gql } from 'apollo-boost';
+
 import Header_own from "./header";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
+const client = new ApolloClient({
+  uri: "http://localhost:8000/___graphql"
+})
+const GET_SITE = gql`
+{
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+`;
+client
+  .query({
+    query: GET_SITE,
+  })
+  .then(console.log);
+
+// const data = useStaticQuery(graphql`
+//     query SiteTitleQuery {
+//       site {
+//         siteMetadata {
+//           title
+//         }
+//       }
+//     }
+//   `);
 
 export default class SiderDemo extends React.Component {
 
@@ -85,6 +114,9 @@ export default class SiderDemo extends React.Component {
     );
   }
 }
+
+
+
 
 
 
