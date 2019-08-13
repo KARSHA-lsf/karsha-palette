@@ -1,30 +1,34 @@
 import React from "react"
 import { Layout, Menu, Icon } from 'antd'
-import { useStaticQuery, graphql } from "gatsby"
 
-import ApolloClient, { gql } from 'apollo-boost';
+
+// import ApolloClient, { gql } from 'apollo-boost';
 
 import Header_own from "./header";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
-const client = new ApolloClient({
-  uri: "http://localhost:8000/___graphql"
-})
-const GET_SITE = gql`
-{
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-`;
-client
-  .query({
-    query: GET_SITE,
-  })
-  .then(console.log);
+
+
+
+
+// const client = new ApolloClient({
+//   uri: "http://localhost:8000/___graphql"
+// })
+// const GET_SITE = gql`
+// {
+//         site {
+//           siteMetadata {
+//             title
+//           }
+//         }
+//       }
+// `;
+// client
+//   .query({
+//     query: GET_SITE,
+//   })
+//   .then(console.log);
 
 // const data = useStaticQuery(graphql`
 //     query SiteTitleQuery {
@@ -61,7 +65,7 @@ export default class SiderDemo extends React.Component {
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Header_own title="karsha-p"></Header_own>
+        <Header_own></Header_own>
         <Layout>
           <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} style={{background:"white", margin: '0 16px'}}>
             <Menu theme="white" defaultSelectedKeys={['1']} mode="inline">
